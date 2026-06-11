@@ -24,6 +24,12 @@ def tambah_mahasiswa(request):
 
     return render(request, 'mahasiswa/form.html')
 
+def daftar_mahasiswa(request):
+    mahasiswa = Mahasiswa.objects.all()
+    return render(request, 'mahasiswa/daftar.html', {
+        'mahasiswa': mahasiswa
+    })
+
 
 @login_required(login_url='/accounts/login/')
 def edit_mahasiswa(request, id):
