@@ -1,7 +1,11 @@
 {% extends 'mahasiswa/base.html' %} 
 {% load static %} 
 {% block content %}
-<h2>Daftar Mahasiswa</h2>
+<a href="{% url 'tambah_mahasiswa' %}">
+    Tambah Mahasiswa
+</a>
+
+<br><br>
 <table border="1">
   <tr>
     <th>NIM</th>
@@ -15,6 +19,11 @@
     <td>{{ mhs.nama }}</td>
     <td>{{ mhs.programstudi }}</td>
     <td>{{ mhs.angkatan }}</td>
+    <td> 
+      <a href="{% url 'edit_mahasiswa' mhs.id %}">
+                Edit
+      </a>
+    </td>
   </tr>
   {% empty %}
   <tr>

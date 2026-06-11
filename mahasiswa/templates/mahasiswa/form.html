@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Mahasiswa</title>
+</head>
+<body>
+
+<h2>
+    {% if mahasiswa %}
+        Edit Mahasiswa
+    {% else %}
+        Tambah Mahasiswa
+    {% endif %}
+</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>NIM</label><br>
+    <input type="text" name="nim"
+           value="{{ mahasiswa.nim|default:'' }}"><br><br>
+
+    <label>Nama</label><br>
+    <input type="text" name="nama"
+           value="{{ mahasiswa.nama|default:'' }}"><br><br>
+
+    <label>Program Studi</label><br>
+    <input type="text" name="programstudi"
+           value="{{ mahasiswa.programstudi|default:'' }}"><br><br>
+
+    <label>Angkatan</label><br>
+    <input type="text" name="angkatan"
+           value="{{ mahasiswa.angkatan|default:'' }}"><br><br>
+
+    <button type="submit">Simpan</button>
+</form>
+
+<br>
+<a href="{% url 'daftar_mahasiswa' %}">Kembali</a>
+
+</body>
+</html>
