@@ -21,7 +21,10 @@
     <td>{{ mhs.angkatan }}</td>
     <td> 
       <a href="{% url 'edit_mahasiswa' mhs.id %}">
-                Edit
+        Edit
+      </a>
+      <a href="{% url 'hapus_mahasiswa' mhs.id %}">
+        Hapus
       </a>
     </td>
   </tr>
